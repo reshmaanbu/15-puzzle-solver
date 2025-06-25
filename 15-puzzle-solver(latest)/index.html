@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Puzzle Solver</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Left Side Panel -->
+        <div class="side-panel left-panel">
+            <div class="panel-content">
+                <h3>Fun Facts <i class="fas fa-lightbulb"></i></h3>
+                <div class="fun-fact-container">
+                    <div class="fun-fact" data-index="0">
+                        <p>The 15-puzzle was invented in the 1870s by Noyes Palmer Chapman, a postmaster in Canastota, New York.</p>
+                    </div>
+                    <div class="fun-fact" data-index="1">
+                        <p>In 1880, Sam Loyd falsely claimed to have invented the puzzle and offered a $1,000 prize for a solution to an impossible configuration.</p>
+                    </div>
+                    <div class="fun-fact" data-index="2">
+                        <p>Only half of all possible 15-puzzle configurations are solvable. The other half are mathematically impossible!</p>
+                    </div>
+                    <div class="fun-fact" data-index="3">
+                        <p>The 15-puzzle has been the subject of mathematical research in group theory and is related to permutation groups.</p>
+                    </div>
+                </div>
+                <div class="fact-nav">
+                    <button class="fact-btn prev-fact"><i class="fas fa-chevron-left"></i></button>
+                    <button class="fact-btn next-fact"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="challenge-section">
+                    <h3>Daily Challenge <i class="fas fa-trophy"></i></h3>
+                    <div class="challenge-content">
+                        <p>Today's goal: <span id="challenge-target">25</span> moves</p>
+                        <p>Your moves: <span id="challenge-moves">0</span></p>
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Container -->
+        <div class="container">
+            <h1>15 Puzzle Solver</h1>
+            
+            <div class="controls">
+                <button id="shuffle"><i class="fas fa-random"></i> Shuffle</button>
+                <button id="solve"><i class="fas fa-magic"></i> Solve</button>
+                <button id="reset"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+            
+            <div class="info">
+                <div id="moves" class="move-counter">Moves: <span>0</span></div>
+                <div id="timer" class="timer">Time: 00:00</div>
+                <div id="status">Status: Ready</div>
+            </div>
+            
+            <div class="puzzle-container">
+                <div id="puzzle" class="puzzle"></div>
+            </div>
+            
+            <div class="solution-info">
+                <div id="solution-status" class="hidden">Solution:</div>
+                <div id="solution-steps" class="hidden"></div>
+                <div id="solution-stats" class="hidden"></div>
+            </div>
+            
+            <div id="game-stats" class="stats-container hidden">
+                <div class="stats-title">Game Statistics</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-label">Best Time</div>
+                        <div id="best-time" class="stat-value">--:--</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Best Moves</div>
+                        <div id="best-moves" class="stat-value">--</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Games Played</div>
+                        <div id="games-played" class="stat-value">0</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Games Solved</div>
+                        <div id="games-solved" class="stat-value">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side Panel -->
+        <div class="side-panel right-panel">
+            <div class="panel-content">
+                <h3>Puzzle Tips <i class="fas fa-chess-knight"></i></h3>
+                <div class="tips-container">
+                    <div class="tip">
+                        <h4><i class="fas fa-star"></i> Start with Corners</h4>
+                        <p>Begin by placing the corner pieces (1, 4, 13) in their correct positions. This creates a foundation for solving the rest.</p>
+                    </div>
+                    <div class="tip">
+                        <h4><i class="fas fa-star"></i> Row by Row</h4>
+                        <p>Solve the puzzle row by row, starting from the top. Once a row is complete, avoid moving those pieces again.</p>
+                    </div>
+                    <div class="tip">
+                        <h4><i class="fas fa-star"></i> Last Two Rows</h4>
+                        <p>The last two rows are tricky! Solve them as a single unit using circular movements to position tiles correctly.</p>
+                    </div>
+                    <div class="tip">
+                        <h4><i class="fas fa-star"></i> Keyboard Shortcuts</h4>
+                        <p>Use 'R' to reset, 'S' to shuffle, and 'A' to auto-solve the puzzle!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
