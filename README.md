@@ -1,1 +1,1 @@
-# 16puzzle-a-
+# 15 puzzle solver
